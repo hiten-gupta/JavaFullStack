@@ -1,0 +1,54 @@
+.Suscribe{
+        background-color: rgb(203, 0, 0);
+        color: white;
+        border: none;
+        height: 36px;
+        width : 110px; 
+        border-radius:40px; /*to make button round*/
+        cursor: pointer; /*to make cursor pointer effect*/
+        margin-right: 8px;
+        transition: opacity 0.50s; /* to make transition effect when hover and active */
+    }
+    .Suscribe:hover{
+        opacity: 0.8;
+    }
+    .Suscribe:active{
+        opacity: 0.3;
+    }
+    .JOIN{
+        background-color: white;
+        color: rgba(5, 72, 167, 0.817);
+        border-style: solid;
+        border-color: rgba(5, 72, 167, 0.817);
+        border-width: 2px;
+        height: 36px;
+        width: 110px;
+        border-radius: 40px;
+        cursor: pointer;
+        margin-right: 8px;
+        transition: background-color 1s, color 1s;
+    }
+    .JOIN:hover{
+        background-color:rgb(5, 72, 167, 0.817);
+        color: white;
+    }
+    .JOIN:active{
+        opacity: 0.6;
+    }
+    .twitter-button{
+        background-color: rgb(10, 147, 227);
+        color : white;
+        border-radius : 40px;
+        padding : 10px 20px 10px 20px;
+        border-color:rgb(10, 147, 227);
+        border-style: solid;
+        cursor: pointer;
+        border-width: 2px;
+        font-weight: bold;
+        font-size : 18px;
+       transition: box-shadow 0.15s; /* to make transition effect when hover */
+
+    }
+    .twitter-button:hover{
+        box-shadow: 5px 5px 10px rgba(0,0,0,0.15); /* values are like:- horizontal, vertical and blur need to be same size maybe */
+    }
