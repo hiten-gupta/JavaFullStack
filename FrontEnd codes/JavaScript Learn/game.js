@@ -1,74 +1,75 @@
-const score = {
-    wins: 0,
-    losses: 0,
-    tie: 0
-}
+let score =JSON.parse(localStorage.getItem('gameScore')) || {
+    win :0,
+    lose : 0,
+    tie : 0
+};
+scoreElement();
 function getMove(){
     const randomNumber = Math.random();
-    if(randomNumber >= 0 && randomNumber <1/3) return 'Rock';
-    else if(randomNumber >= 1/3 && randomNumber <2/3) return 'Paper';
-    else return 'Scissors';
+    if(randomNumber >= 0 && randomNumber < 1/3) return 'Rock'
+    else if(randomNumber>=1/3 && randomNumber <2/3) return'Paper';
+    else return 'Scissor';
 }
 function scoreElement(){
-    document.getElementById('score').innerHTML= `Wins: ${score.wins}, Losses: ${score.losses}, Tie!: ${score.tie}`; 
+    document.getElementById('score').innerHTML = `Win: ${score.win}, Lose = ${score.lose}, Tie = ${score.tie}`;
+}
+function saveGame(){
+    localStorage.setItem('gameScore', JSON.stringify(score));
 }
 function rock(){
     const computerMove = getMove();
-    console.log(`You chose: Rock. Computer chose: ${computerMove}.`);
-    if(computerMove === 'Rock'){ 
-        score.tie +=1;
-        console.log('Tie!');
+    console.log(`You choose : Rock, Computer choose : ${computerMove}`);
+    if(computerMove == 'Rock'){
+        console.log('Tie! Better Luck Next Time Kiddo');
+        score.tie += 1;
+    }else if(computerMove == 'Paper'){
+        console.log('You Lose! Losser');
+        score.lose += 1;
+    }else{
+        console.log('You Win! Just a Fluke');
+        score.win += 1;
     }
-    else if(computerMove === 'Paper'){ 
-        score.losses +=1;
-        console.log('You Lose! LooserL');
-    }
-    else {
-        score.wins +=1;
-        console.log('You win! Just a beginner luck');
-    }
+    saveGame();
     scoreElement();
 }
 function paper(){
     const computerMove = getMove();
-    console.log(`You chose: Paper. Computer chose: ${computerMove}.`);
-    if(computerMove === 'Rock'){
-        score.wins +=1;
-        console.log('You win! Just a beginner luck');
+    console.log(`You choose : paper, Computer choose : ${computerMove}`);
+    if(computerMove == 'Rock'){
+        console.log('You Win! Just a Fluke');
+        score.win += 1;
+    }else if(computerMove == 'Paper'){
+        console.log('Tie! Better Luck Next Time Kiddo');
+        score.tie += 1;
+    }else{
+        console.log('You Lose! Losser');
+        score.lose += 1;
     }
-    else if(computerMove === 'Paper') {
-        score.tie +=1;
-        console.log('Tie!');
-}
-    else {
-        score.losses +=1;
-        console.log('You Lose! LooserL');
-    }
+    saveGame();
     scoreElement();
 }
 function scissor(){
     const computerMove = getMove();
-    console.log(`You chose: Scissors. Computer chose: ${computerMove}.`);
-    if(computerMove === 'Rock') {
-        score.losses +=1;
-        console.log('You Lose! LooserL');
+    console.log(`You choose : scissor, Computer choose : ${computerMove}`);
+    if(computerMove == 'Rock'){
+        console.log('You Lose! Losser');
+        score.lose += 1;
+    }else if(computerMove == 'Paper'){
+        console.log('You Win! Just a Fluke');
+        score.win += 1;
+    }else{
+        console.log('Tie! Better Luck Next Time Kiddo');
+        score.tie += 1;
     }
-    else if(computerMove === 'Paper') {
-        score.wins +=1;
-        console.log('You win! Just a beginner luck');
-    }
-    else{
-        score.tie +=1;
-        console.log('Tie!');
-    }
+    saveGame();
     scoreElement();
 }
-function reset() {
-    score.wins = 0;
-    score.losses = 0;
+function reset(){
+    score.win = 0;
     score.tie = 0;
-    scoreElement(); // Update the screen to show 0s
-    console.log('Score has been reset.');
+    score.lose = 0;
+    scoreElement();
+    localStorage.removeItem('gameScore');
+    scoreElement();
+    console.log('Score has been reset! Enjoy');
 }
-
-
