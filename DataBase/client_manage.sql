@@ -8,3 +8,4 @@ CREATE TABLE clients (
  email VARCHAR(255),
  company VARCHAR(255)
 );
+show tables;
