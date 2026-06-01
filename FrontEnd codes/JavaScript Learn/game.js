@@ -19,10 +19,10 @@ function saveGame(){
 function rock(){
     const computerMove = getMove();
     console.log(`You choose : Rock, Computer choose : ${computerMove}`);
-    if(computerMove == 'Rock'){
+    if(computerMove === 'Rock'){
         console.log('Tie! Better Luck Next Time Kiddo');
         score.tie += 1;
-    }else if(computerMove == 'Paper'){
+    }else if(computerMove === 'Paper'){
         console.log('You Lose! Losser');
         score.lose += 1;
     }else{
@@ -35,10 +35,10 @@ function rock(){
 function paper(){
     const computerMove = getMove();
     console.log(`You choose : paper, Computer choose : ${computerMove}`);
-    if(computerMove == 'Rock'){
+    if(computerMove === 'Rock'){
         console.log('You Win! Just a Fluke');
         score.win += 1;
-    }else if(computerMove == 'Paper'){
+    }else if(computerMove === 'Paper'){
         console.log('Tie! Better Luck Next Time Kiddo');
         score.tie += 1;
     }else{
@@ -51,10 +51,10 @@ function paper(){
 function scissor(){
     const computerMove = getMove();
     console.log(`You choose : scissor, Computer choose : ${computerMove}`);
-    if(computerMove == 'Rock'){
+    if(computerMove === 'Rock'){
         console.log('You Lose! Losser');
         score.lose += 1;
-    }else if(computerMove == 'Paper'){
+    }else if(computerMove === 'Paper'){
         console.log('You Win! Just a Fluke');
         score.win += 1;
     }else{
