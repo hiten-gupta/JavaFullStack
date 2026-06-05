@@ -3,6 +3,8 @@ let score =JSON.parse(localStorage.getItem('gameScore')) || {
     lose : 0,
     tie : 0
 };
+let roundMove = '';
+let roundResult = '';
 scoreElement();
 function getMove(){
     const randomNumber = Math.random();
@@ -12,12 +14,15 @@ function getMove(){
 }
 function scoreElement(){
     document.getElementById('score').innerHTML = `Win: ${score.win}, Lose = ${score.lose}, Tie = ${score.tie}`;
+    document.getElementById('move').innerHTML = roundMove;
+    document.getElementById('result').innerHTML = roundResult;
 }
 function saveGame(){
     localStorage.setItem('gameScore', JSON.stringify(score));
 }
 function rock(){
     const computerMove = getMove();
+    roundMove = `You Choose Rock - Computer Choose ${computerMove}`;
     console.log(`You choose : Rock, Computer choose : ${computerMove}`);
     if(computerMove === 'Rock'){
         console.log('Tie! Better Luck Next Time Kiddo');
@@ -34,6 +39,7 @@ function rock(){
 }
 function paper(){
     const computerMove = getMove();
+    roundMove = `You Choose Paper - Computer Choose ${computerMove}`;
     console.log(`You choose : paper, Computer choose : ${computerMove}`);
     if(computerMove === 'Rock'){
         console.log('You Win! Just a Fluke');
@@ -50,6 +56,7 @@ function paper(){
 }
 function scissor(){
     const computerMove = getMove();
+    roundMove = `You Choose Scissor - Computer Choose ${computerMove}`;
     console.log(`You choose : scissor, Computer choose : ${computerMove}`);
     if(computerMove === 'Rock'){
         console.log('You Lose! Losser');
@@ -69,6 +76,8 @@ function reset(){
     score.tie = 0;
     score.lose = 0;
     scoreElement();
+    roundMove = '';
+    roundResult = '';
     localStorage.removeItem('gameScore');
     scoreElement();
     console.log('Score has been reset! Enjoy');
