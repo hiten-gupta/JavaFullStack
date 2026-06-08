@@ -23,15 +23,15 @@ function saveGame(){
 function rock(){
     const computerMove = getMove();
     roundMove = `You Choose Rock - Computer Choose ${computerMove}`;
-    console.log(`You choose : Rock, Computer choose : ${computerMove}`);
+    
     if(computerMove === 'Rock'){
-        console.log('Tie! Better Luck Next Time Kiddo');
+        roundResult = 'Tie! Better Luck Next Time Kiddo';
         score.tie += 1;
     }else if(computerMove === 'Paper'){
-        console.log('You Lose! Losser');
+        roundResult = 'You Lose! Losser';
         score.lose += 1;
     }else{
-        console.log('You Win! Just a Fluke');
+        roundResult = 'You Win! Just a Fluke';
         score.win += 1;
     }
     saveGame();
@@ -40,15 +40,14 @@ function rock(){
 function paper(){
     const computerMove = getMove();
     roundMove = `You Choose Paper - Computer Choose ${computerMove}`;
-    console.log(`You choose : paper, Computer choose : ${computerMove}`);
     if(computerMove === 'Rock'){
-        console.log('You Win! Just a Fluke');
+        roundResult = 'You Win! Just a Fluke';
         score.win += 1;
     }else if(computerMove === 'Paper'){
-        console.log('Tie! Better Luck Next Time Kiddo');
+        roundResult = 'Tie! Better Luck Next Time Kiddo';
         score.tie += 1;
     }else{
-        console.log('You Lose! Losser');
+        roundResult = 'You Lose! Losser';
         score.lose += 1;
     }
     saveGame();
@@ -57,15 +56,14 @@ function paper(){
 function scissor(){
     const computerMove = getMove();
     roundMove = `You Choose Scissor - Computer Choose ${computerMove}`;
-    console.log(`You choose : scissor, Computer choose : ${computerMove}`);
     if(computerMove === 'Rock'){
-        console.log('You Lose! Losser');
+        roundResult = 'You Lose! Losser';
         score.lose += 1;
     }else if(computerMove === 'Paper'){
-        console.log('You Win! Just a Fluke');
+        roundResult = 'You Win! Just a Fluke';
         score.win += 1;
     }else{
-        console.log('Tie! Better Luck Next Time Kiddo');
+        roundResult = 'Tie! Better Luck Next Time Kiddo';
         score.tie += 1;
     }
     saveGame();
