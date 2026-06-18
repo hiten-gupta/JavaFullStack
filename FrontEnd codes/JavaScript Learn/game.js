@@ -1,10 +1,16 @@
-let score =JSON.parse(localStorage.getItem('gameScore')) || {
+let score =JSON.parse(localStorage.getItem('game    Score')) || {
     win :0,
     lose : 0,
     tie : 0
 };
 let roundMove = '';
 let roundResult = '';
+
+const emojiMap = {
+    'Rock' : '<img src = "rock-emoji.png" class = "emoji-inline">',
+    'Paper' : '<img src = "paper-emoji.png" class = "emoji-inline">',
+    'Scissor' : '<img src = "scissors-emoji.png" class = "emoji-inline">',
+};
 scoreElement();
 function getMove(){
     const randomNumber = Math.random();
@@ -20,55 +26,26 @@ function scoreElement(){
 function saveGame(){
     localStorage.setItem('gameScore', JSON.stringify(score));
 }
-function rock(){
+function updateGame(playerMove){
     const computerMove = getMove();
-    roundMove = `You Choose Rock - Computer Choose ${computerMove}`;
-    
-    if(computerMove === 'Rock'){
-        roundResult = 'Tie! Better Luck Next Time Kiddo';
+    if(playerMove === computerMove){
+        roundResult ='Tie! Better Luck Next Time Kiddo';
         score.tie += 1;
-    }else if(computerMove === 'Paper'){
-        roundResult = 'You Lose! Losser';
-        score.lose += 1;
-    }else{
-        roundResult = 'You Win! Just a Fluke';
-        score.win += 1;
     }
-    saveGame();
-    scoreElement();
-}
-function paper(){
-    const computerMove = getMove();
-    roundMove = `You Choose Paper - Computer Choose ${computerMove}`;
-    if(computerMove === 'Rock'){
+    else if((playerMove === 'Rock' && computerMove === 'Scissor') || (playerMove === 'Paper' && computerMove === 'Rock') || (playerMove === 'Scissor' && computerMove ==='Paper')){
         roundResult = 'You Win! Just a Fluke';
-        score.win += 1;
-    }else if(computerMove === 'Paper'){
-        roundResult = 'Tie! Better Luck Next Time Kiddo';
-        score.tie += 1;
+        score.win +=1;
     }else{
         roundResult = 'You Lose! Losser';
         score.lose += 1;
     }
+    roundMove = `You choose ${emojiMap[playerMove]} Computer Choose ${emojiMap[computerMove]}`;
     saveGame();
     scoreElement();
 }
-function scissor(){
-    const computerMove = getMove();
-    roundMove = `You Choose Scissor - Computer Choose ${computerMove}`;
-    if(computerMove === 'Rock'){
-        roundResult = 'You Lose! Losser';
-        score.lose += 1;
-    }else if(computerMove === 'Paper'){
-        roundResult = 'You Win! Just a Fluke';
-        score.win += 1;
-    }else{
-        roundResult = 'Tie! Better Luck Next Time Kiddo';
-        score.tie += 1;
-    }
-    saveGame();
-    scoreElement();
-}
+function rock(){updateGame('Rock');}
+function paper(){updateGame('Paper');}
+function scissor(){updateGame('Scissor');}
 function reset(){
     score.win = 0;
     score.tie = 0;

@@ -1,4 +1,16 @@
+body{
+    /*background-image: url('goku-ultra-instinct-dragon-ball-super-glowing-aura-desktop-wallpaper-5k.jpg');*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-weight: bold;
+    font-size: 16px;
+    font-family:Arial,'Times New Roman', Times, serif;
+}
 .Subscribe{
+    display: block;
+    margin : 600 px;
     background-color: black;
     color: white;
     border-radius: 12px;
@@ -7,5 +19,48 @@
     font-size: 16px;
     position: absolute;
     border:none;
-    
+    cursor: pointer;
+}
+/*.Subscribe:hover{
+    background-color: white;
+    color: black;
+    transition: 1s;
+    border:solid;
+    font-weight: bold;
+}*/
+.input-text{
+    font-size: 16px;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 5px;
+    padding: 15px;
+}
+.calculate{
+    background-color: rgb(63, 128, 63);
+    color: white;
+    border:none;
+    border-radius: 20px;
+    padding:15px;
+    font-size: 16px;
+}
+.calculate:hover{
+    background-color: aquamarine;
+    color: black;
+    transition: 1s;
+}
+.paper{
+    margin-top : 60px;
+}
+.is-subscribed{
+    display: block;
+    margin : 0;
+    background-color: rgb(189, 187, 187);
+    color: rgb(0, 0, 0);
+    border-radius: 12px;
+    padding : 10px 13px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    position: absolute;
+    border:none;
+    cursor: pointer;
 }

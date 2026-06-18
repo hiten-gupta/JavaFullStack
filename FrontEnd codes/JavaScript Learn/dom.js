@@ -1,8 +1,12 @@
 function subscribeButton(){
     const buttonElement = document.querySelector('.Subscribe');
-    if(buttonElement.innerText === 'Subscribe'){
+    if(buttonElement.innerText.trim() === 'Subscribe'){
         buttonElement.innerText = 'Subscribed';
-    }else buttonElement.innerText = 'Subscribe';
+        buttonElement.classList.add('is-subscribed');
+    }else{ 
+        buttonElement.innerText = 'Subscribe';
+        buttonElement.classList.remove('is-subscribed');
+    }
     
 }
 function calculate(){
@@ -17,8 +21,11 @@ function calculate(){
     else finalCost = orderTotal;
     document.getElementById('total-cost').innerText = `Total Amount : RS. ${finalCost}`;
 }
-function helperEnter(){
-    if(event.key === 'Enter'){
-        calculate();
+document.addEventListener('DOMContentLoaded', () => {
+    const textInput = document.getElementById('fname');
+    if(textInput){
+textInput.addEventListener('keydown', (event) => {
+    if(event.key === 'Enter') calculate();
+});
     }
-}
+});

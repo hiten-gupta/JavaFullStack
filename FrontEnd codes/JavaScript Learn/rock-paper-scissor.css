@@ -1,0 +1,62 @@
+body{
+    background-color: rgb(25, 25, 25);
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding:20px;
+}
+.title{
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 35px;
+
+}
+.emoji{
+    height:50px;
+    width: 50px;
+    
+}
+.emoji-inline{
+    height: 50px;
+    width: 50px;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+.emoji-button{
+    border-radius: 60px;
+    background-color: transparent;
+    border: 3px solid white;
+    margin-right:15px;
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    cursor:pointer;
+    transition: background-color 0.1s;
+}
+.emoji-button :hover{
+    background-color: rgba(255,255,255,0.1);
+}
+.result{
+    font-weight: bold;
+    font-style: Arial;
+    font-size: 30px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.move{
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 45px;
+}
+.score{
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+.reset-button{
+    background-color: white;
+    color: black;
+    border:none;
+    padding: 10px 15px;
+    font-size: 15px;
+    cursor : pointer;
+}

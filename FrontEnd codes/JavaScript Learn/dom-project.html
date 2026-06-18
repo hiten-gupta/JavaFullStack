@@ -8,17 +8,16 @@
     <script src = "dom.js" defer></script>
 </head>
 <body>
+    
     <p>Click here to subscibe my channel</p><br>
     <button onclick="subscribeButton()" class = "Subscribe">Subscribe</button>
-    <br>
-    <p> Rock Paper Scissor Game</p>
-    
+    <h1 class = "paper"> Rock Paper Scissor Game</h1>
     <a href = "rock-paper-scissor.html" target ="_self"> Click This Link</a>
     <p>Amazon Shipping Calculator</p>
     <p>Orders under RS. 500 = +RS 150 Shipping Charges</p>
     <p> Orders above RS. 500 = Free Shipping</p>
-    <input type = "text" id ="fname" onkeydown="helperEnter()" >
-    <button onclick="calculate()">Calculate</button>
+    <input type = "text" id ="fname" class = "input-text" placeholder="Total Cost of Order">
+    <button onclick="calculate()" class = "calculate">Calculate</button>
     <p id = "total-cost"></p>
 </body>
 </html>
