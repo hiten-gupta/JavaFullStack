@@ -1,4 +1,4 @@
-let score =JSON.parse(localStorage.getItem('game    Score')) || {
+let score =JSON.parse(localStorage.getItem('gameScore')) || {
     win :0,
     lose : 0,
     tie : 0
@@ -14,7 +14,7 @@ const emojiMap = {
 scoreElement();
 function getMove(){
     const randomNumber = Math.random();
-    if(randomNumber >= 0 && randomNumber < 1/3) return 'Rock'
+    if(randomNumber >= 0 && randomNumber < 1/3) return 'Rock';
     else if(randomNumber>=1/3 && randomNumber <2/3) return'Paper';
     else return 'Scissor';
 }
@@ -32,7 +32,9 @@ function updateGame(playerMove){
         roundResult ='Tie! Better Luck Next Time Kiddo';
         score.tie += 1;
     }
-    else if((playerMove === 'Rock' && computerMove === 'Scissor') || (playerMove === 'Paper' && computerMove === 'Rock') || (playerMove === 'Scissor' && computerMove ==='Paper')){
+    else if((playerMove === 'Rock' && computerMove === 'Scissor')
+        || (playerMove === 'Paper' && computerMove === 'Rock')
+        || (playerMove === 'Scissor' && computerMove ==='Paper')){
         roundResult = 'You Win! Just a Fluke';
         score.win +=1;
     }else{
